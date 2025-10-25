@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC04_PATCH_Users_Error_Invalid_ID</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>5b82325f-9750-453f-9c2d-357e68676ffb</testCaseGuid>
+</TestCaseEntity>

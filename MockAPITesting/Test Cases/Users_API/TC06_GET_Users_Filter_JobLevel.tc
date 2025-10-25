@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC06_GET_Users_Filter_JobLevel</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>6f6fd89b-5932-40cb-8fe3-253a5ad8f68b</testCaseGuid>
+</TestCaseEntity>

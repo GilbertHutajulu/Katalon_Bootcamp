@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC05_User_CRUD_Chain_Request</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>a6d6592b-d2a9-4572-bd13-4babb0ffcbee</testCaseGuid>
+</TestCaseEntity>

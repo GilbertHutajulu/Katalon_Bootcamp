@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC03_POST_Users_Error_Duplicate_Username</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f7def15b-5731-441d-83da-b4e860b69f14</testCaseGuid>
+</TestCaseEntity>
