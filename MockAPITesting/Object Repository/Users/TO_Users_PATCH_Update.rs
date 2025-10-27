@@ -3,17 +3,17 @@
    <description></description>
    <name>TO_Users_PATCH_Update</name>
    <tag></tag>
-   <elementGuidId>e9c7fe04-f717-4655-9a2b-4d63a68330aa</elementGuidId>
+   <elementGuidId>d49c1b78-d186-4529-95eb-764fe70a75df</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>false</autoUpdateContent>
-   <connectionTimeout>-1</connectionTimeout>
+   <connectionTimeout>0</connectionTimeout>
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;job_level\&quot;: \&quot;Senior\&quot;\n}&quot;,
-  &quot;contentType&quot;: &quot;text/plain&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;first_name\&quot;: \&quot;${first_name}\&quot;,\n  \&quot;last_name\&quot;: \&quot;${last_name}\&quot;,\n  \&quot;username\&quot;: \&quot;${username}\&quot;,\n  \&quot;job_position\&quot;: \&quot;${job_position}\&quot;,\n  \&quot;job_level\&quot;: \&quot;${job_level}\&quot;,\n  \&quot;salary\&quot;: 8000000,\n  \&quot;work_duration\&quot;: 2\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
    <httpBodyType>text</httpBodyType>
@@ -22,38 +22,30 @@
       <matchCondition>equals</matchCondition>
       <name>apikey</name>
       <type>Main</type>
-      <value>${apiKey}</value>
-      <webElementGuid>d2d7bbc1-88da-4d8d-a344-78778a28114b</webElementGuid>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Authorization</name>
-      <type>Main</type>
-      <value>${anonToken}</value>
-      <webElementGuid>1396e2a5-c058-4867-b526-a6a2ab29fa05</webElementGuid>
+      <value>sb_secret_VMbVohxbtlp7c4H4xzd7UQ_CGP_TGVv</value>
+      <webElementGuid>c41d2034-4d7f-4b08-a0e6-176ce335f58a</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>Content-Type</name>
       <type>Main</type>
-      <value>text/plain</value>
-      <webElementGuid>4ae29afd-0af9-450b-b330-57b88d0c65af</webElementGuid>
+      <value>application/json</value>
+      <webElementGuid>29486960-8137-41ac-b665-8ffc90e39956</webElementGuid>
    </httpHeaderProperties>
-   <katalonVersion>10.3.1</katalonVersion>
-   <maxResponseSize>-1</maxResponseSize>
+   <katalonVersion>10.3.2</katalonVersion>
+   <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>PATCH</restRequestMethod>
-   <restUrl>${baseUrl}/users?id=eq.${new_user_id}</restUrl>
+   <restUrl>https://hjaltjbqyttixmfubktb.supabase.co/rest/v1/users?username=eq.${username}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod></soapRequestMethod>
    <soapServiceEndpoint></soapServiceEndpoint>
    <soapServiceFunction></soapServiceFunction>
-   <socketTimeout>-1</socketTimeout>
+   <socketTimeout>0</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
