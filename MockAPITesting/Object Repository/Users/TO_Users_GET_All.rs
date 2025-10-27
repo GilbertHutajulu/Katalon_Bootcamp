@@ -3,11 +3,11 @@
    <description></description>
    <name>TO_Users_GET_All</name>
    <tag></tag>
-   <elementGuidId>bb3a71a0-debf-465c-b722-952ab70e1134</elementGuidId>
+   <elementGuidId>a4cd96ab-3d41-4dbf-97dd-cbaa9cfb37b3</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>false</autoUpdateContent>
+   <autoUpdateContent>true</autoUpdateContent>
    <connectionTimeout>0</connectionTimeout>
    <followRedirects>true</followRedirects>
    <httpBody></httpBody>
@@ -18,31 +18,15 @@
       <matchCondition>equals</matchCondition>
       <name>apikey</name>
       <type>Main</type>
-      <value>${apiKey}</value>
-      <webElementGuid>50b0346d-6ecc-4d58-bec0-810ca922edab</webElementGuid>
+      <value>sb_secret_VMbVohxbtlp7c4H4xzd7UQ_CGP_TGVv</value>
+      <webElementGuid>f8433b8f-9c6e-47f6-b562-c3c9e7b60ffe</webElementGuid>
    </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Authorization</name>
-      <type>Main</type>
-      <value>${anonToken}</value>
-      <webElementGuid>2264d9ca-fbfc-481d-a1a8-93fe0843368e</webElementGuid>
-   </httpHeaderProperties>
-   <httpHeaderProperties>
-      <isSelected>true</isSelected>
-      <matchCondition>equals</matchCondition>
-      <name>Content-Type</name>
-      <type>Main</type>
-      <value>text/plain</value>
-      <webElementGuid>fa075cc7-2392-4340-878e-1927386f609b</webElementGuid>
-   </httpHeaderProperties>
-   <katalonVersion>10.3.1</katalonVersion>
+   <katalonVersion>10.3.2</katalonVersion>
    <maxResponseSize>0</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <path></path>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${baseUrl}/users</restUrl>
+   <restUrl>https://hjaltjbqyttixmfubktb.supabase.co/rest/v1/users</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

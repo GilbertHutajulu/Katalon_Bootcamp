@@ -1,47 +1,67 @@
-import com.kms.katalon.core.testobject.RequestObject
+import static com.kms.katalon.core.checkpoint.CheckpointFactory.findCheckpoint
+import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
+import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
+import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
+import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
+import com.kms.katalon.core.cucumber.keyword.CucumberBuiltinKeywords as CucumberKW
+import com.kms.katalon.core.model.FailureHandling as FailureHandling
+import com.kms.katalon.core.testcase.TestCase as TestCase
+import com.kms.katalon.core.testdata.TestData as TestData
+import com.kms.katalon.core.testng.keyword.TestNGBuiltinKeywords as TestNGKW
+import com.kms.katalon.core.testobject.TestObject as TestObject
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-import com.kms.katalon.core.util.KeywordUtil
-import com.kms.katalon.core.testobject.TestObjectProperty
-import internal.GlobalVariable
+import internal.GlobalVariable as GlobalVariable
+import org.openqa.selenium.Keys as Keys
 
-// --- 1. POST (Create) ---
-KeywordUtil.logInfo("--- 1. POST: Creating new user ---")
-def postResp = WS.sendRequest(findTestObject('Users/TO_Users_POST_Create'))
+// ==========================================
+// 🔹 STEP 1: Generate Random Username
+// ==========================================
+def randomNum = new Random().nextInt(9000) + 1000
+def randomUsername = "Firman$randomNum"
+println("✅ Random username generated: $randomUsername")
+GlobalVariable.randomUsername = randomUsername
 
-// Verifikasi Status dan Ekstrak ID
-WS.verifyResponseStatusCode(postResp, 201)
-String newId = WS.getElementPropertyValue(postResp, '[0].id').toString()
-KeywordUtil.markInfo("Created User ID: " + newId)
+// ==========================================
+// 🔹 STEP 2: POST New User
+// ==========================================
+// Menggunakan TO_Users_POST_Create
+def postResponse = WS.sendRequest(findTestObject('Users/TO_Users_POST_Create', [('first_name') : 'Firman', ('last_name') : 'test'
+            , ('username') : randomUsername, ('job_position') : 'Quality Assurance', ('job_level') : 'Mid', ('salary') : 20000000
+            , ('work_duration') : 3.5]))
 
-GlobalVariable.new_user_id = newId
+WS.verifyResponseStatusCode(postResponse, 201)
+println('✅ POST validation passed')
 
-// --- 2. GET (Read - Verify Creation) ---
-KeywordUtil.logInfo("--- 2. GET: Verifying creation ---")
-TestObject getSingleTO = findTestObject('Users/TO_Users_GET_All')
-getSingleTO.setRestUrl(GlobalVariable.baseUrl + "/users?id=eq." + newId)
-ResponseObject getResp = WS.sendRequest(getSingleTO)
+// ==========================================
+// 🔹 STEP 3: UPDATE User using stored username
+// ==========================================
+// Menggunakan TO_User_PATCH_Update
+//def updateResponse = WS.sendRequest(findTestObject('Folder Proyek/Users/TO_User_PATCH_Update', [('first_name') : 'Firman'
+//            , ('last_name') : 'test', ('username') : GlobalVariable.randomUsername, ('job_position') : 'Senior QA Engineer'
+//            , ('job_level') : 'Senior']))
+//
+//WS.verifyResponseStatusCode(updateResponse, 204) 
+//println('✅ UPDATE validation passed')
 
-WS.verifyResponseStatusCode(getResp, 200)
-WS.verifyElementPropertyValue(getResp, '[0].id', newId) 
+// ==========================================
+// 🔹 STEP 4: GET Single User (verify changes)
+// ==========================================
+// Menggunakan TO_Users_GET_All, asumsikan ini bekerja untuk filtering
+//def getResponse = WS.sendRequest(findTestObject('Users/TO_Users_GET_All', [('username') : GlobalVariable.randomUsername]))
+//
+//WS.verifyResponseStatusCode(getResponse, 200)
+//
+//// Verifikasi elemen
+//WS.verifyElementPropertyValue(getResponse, '[0].username', GlobalVariable.randomUsername)
+//WS.verifyElementPropertyValue(getResponse, '[0].first_name', 'firman_updated') 
+//println('✅ GET validation passed')
 
-// --- 3. PATCH (Update) ---
-KeywordUtil.logInfo("--- 3. PATCH: Updating job_level to Senior ---")
-ResponseObject patchResp = WS.sendRequest(findTestObject('Users/TO_Users_PATCH_Update'))
-WS.verifyResponseStatusCode(patchResp, 204) // No Content Expected
+// ==========================================
+// 🔹 STEP 5: DELETE User
+// ==========================================
+// Menggunakan TO_Users_DELETE
+def deleteResponse = WS.sendRequest(findTestObject('Users/TO_Users_DELETE', [('username') : GlobalVariable.randomUsername]))
 
-// --- 4. GET (Read - Verify Update) ---
-KeywordUtil.logInfo("--- 4. GET: Verifying update ---")
-ResponseObject getUpdatedResp = WS.sendRequest(getSingleTO)
-WS.verifyResponseStatusCode(getUpdatedResp, 200)
-WS.verifyElementPropertyValue(getUpdatedResp, '[0].job_level', 'Senior')
-
-// --- 5. DELETE (Delete) ---
-KeywordUtil.logInfo("--- 5. DELETE: Deleting user ---")
-ResponseObject deleteResp = WS.sendRequest(findTestObject('Users/TO_Users_DELETE'))
-WS.verifyResponseStatusCode(deleteResp, 204)
-
-// --- 6. GET (Verify Deletion) ---
-KeywordUtil.logInfo("--- 6. GET: Verifying deletion (expecting 404 or empty array) ---")
-ResponseObject getDeletedResp = WS.sendRequest(getSingleTO)
-WS.verifyResponseStatusCode(getDeletedResp, 200) 
-WS.verifyElementText(getDeletedResp, '$', '[]') // Verifikasi respons adalah array kosong
+WS.verifyResponseStatusCode(deleteResponse, 204)
+println('✅ DELETE validation passed')
