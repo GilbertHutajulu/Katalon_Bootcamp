@@ -1,0 +1,90 @@
+2025-10-27 18:45:58.454 INFO  c.k.katalon.core.main.TestSuiteExecutor  - START Test Suites/TS_Katalon_Mock_API_Full_Test
+2025-10-27 18:45:58.603 INFO  c.k.katalon.core.main.TestSuiteExecutor  - userFullName = pirmaan
+2025-10-27 18:45:58.605 INFO  c.k.katalon.core.main.TestSuiteExecutor  - projectName = MockAPITesting
+2025-10-27 18:45:58.607 INFO  c.k.katalon.core.main.TestSuiteExecutor  - hostName = hutaj - Hutajulu.lan
+2025-10-27 18:45:58.613 INFO  c.k.katalon.core.main.TestSuiteExecutor  - os = Windows 11 64bit
+2025-10-27 18:45:58.614 INFO  c.k.katalon.core.main.TestSuiteExecutor  - hostAddress = 192.168.110.32
+2025-10-27 18:45:58.616 INFO  c.k.katalon.core.main.TestSuiteExecutor  - katalonVersion = 10.3.2.0
+2025-10-27 18:45:59.499 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-10-27 18:45:59.499 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Users_API/TC01_GET_Users_Success
+2025-10-27 18:46:00.281 DEBUG testcase.TC01_GET_Users_Success          - 1: response = sendRequest(findTestObject("Users/TO_Users_GET_All"))
+2025-10-27 18:46:03.140 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_GET_All_0.har
+2025-10-27 18:46:03.315 DEBUG testcase.TC01_GET_Users_Success          - 2: verifyResponseStatusCode(response, 200)
+2025-10-27 18:46:03.375 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Users_API/TC01_GET_Users_Success
+2025-10-27 18:46:03.392 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-10-27 18:46:03.392 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Users_API/TC02_POST_Users_Success
+2025-10-27 18:46:03.611 DEBUG testcase.TC02_POST_Users_Success         - 1: currentTimeMillis = System.currentTimeMillis()
+2025-10-27 18:46:03.634 DEBUG testcase.TC02_POST_Users_Success         - 2: randomNum = Random().nextInt(999) + 100
+2025-10-27 18:46:03.701 DEBUG testcase.TC02_POST_Users_Success         - 3: uniqueUsername = FirmanUser_$currentTimeMillis_$randomNum
+2025-10-27 18:46:03.807 DEBUG testcase.TC02_POST_Users_Success         - 4: uniqueLastName = Test_$randomNum
+2025-10-27 18:46:03.826 DEBUG testcase.TC02_POST_Users_Success         - 5: println("✅ Username unik di-generate: " + uniqueUsername)
+✅ Username unik di-generate: FirmanUser_1761565563625_643
+2025-10-27 18:46:03.862 DEBUG testcase.TC02_POST_Users_Success         - 6: postResponse = sendRequest(findTestObject("Users/TO_Users_POST_Create", ["first_name":"Firman", "last_name":uniqueLastName, "username":uniqueUsername, "job_position":"Quality Assurance", "job_level":"Junior", ... ]))
+2025-10-27 18:46:04.249 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Create_1.har
+2025-10-27 18:46:04.267 DEBUG testcase.TC02_POST_Users_Success         - 7: verifyResponseStatusCode(postResponse, 201)
+2025-10-27 18:46:04.276 DEBUG testcase.TC02_POST_Users_Success         - 8: println("✅ Verifikasi Status Code Berhasil: 201 Created")
+✅ Verifikasi Status Code Berhasil: 201 Created
+2025-10-27 18:46:04.287 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Users_API/TC02_POST_Users_Success
+2025-10-27 18:46:04.317 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-10-27 18:46:04.317 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username
+2025-10-27 18:46:04.473 DEBUG TC03_POST_Users_Error_Duplicate_Username - 1: response = sendRequest(findTestObject("Users/TO_Users_POST_Create", ["first_name":"Firman", "last_name":"Singger", "username":"Firman", "job_position":"Quality Assurance", "job_level":"Junior", ... ]))
+2025-10-27 18:46:04.874 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Create_2.har
+2025-10-27 18:46:04.899 DEBUG TC03_POST_Users_Error_Duplicate_Username - 2: verifyResponseStatusCode(response, 409)
+2025-10-27 18:46:04.969 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username
+2025-10-27 18:46:04.993 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-10-27 18:46:04.993 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID
+2025-10-27 18:46:05.171 DEBUG t.TC04_PATCH_Users_Error_Invalid_ID      - 1: randomNum = Random().nextInt(9000) + 1000
+2025-10-27 18:46:05.181 DEBUG t.TC04_PATCH_Users_Error_Invalid_ID      - 2: randomUsername = firman_$randomNum
+2025-10-27 18:46:05.208 DEBUG t.TC04_PATCH_Users_Error_Invalid_ID      - 3: println("✅ New user created with username: " + randomUsername)
+✅ New user created with username: firman_8005
+2025-10-27 18:46:05.256 DEBUG t.TC04_PATCH_Users_Error_Invalid_ID      - 4: response = sendRequest(findTestObject("Users/TO_Users_PATCH_Update", ["first_name":randomUsername, "last_name":"test", "username":"firmans", "job_position":"asdsadas", "job_level":"asdsadasa"]))
+2025-10-27 18:46:05.576 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Update_3.har
+2025-10-27 18:46:05.582 DEBUG t.TC04_PATCH_Users_Error_Invalid_ID      - 5: verifyResponseStatusCode(response, 204)
+2025-10-27 18:46:05.592 DEBUG t.TC04_PATCH_Users_Error_Invalid_ID      - 6: randomUsername = randomUsername
+2025-10-27 18:46:05.830 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID
+2025-10-27 18:46:05.858 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-10-27 18:46:05.858 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel
+2025-10-27 18:46:06.166 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 1: filterLevel = "Senior"
+2025-10-27 18:46:06.171 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 2: baseUrl = "https://hjaltjbqyttixmfubktb.supabase.co/rest/v1"
+2025-10-27 18:46:06.181 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 3: endpoint = "/users?job_level=eq." + filterLevel
+2025-10-27 18:46:06.197 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 4: fullUrl = baseUrl + endpoint
+2025-10-27 18:46:06.217 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 5: logInfo("Mengirim permintaan ke URL: " + fullUrl)
+2025-10-27 18:46:06.248 INFO  com.kms.katalon.core.util.KeywordUtil    - Mengirim permintaan ke URL: https://hjaltjbqyttixmfubktb.supabase.co/rest/v1/users?job_level=eq.Senior
+2025-10-27 18:46:06.265 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 6: getFilterTO = findTestObject("Users/TO_Users_GET_All")
+2025-10-27 18:46:06.282 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 7: getFilterTO.setRestUrl(fullUrl)
+2025-10-27 18:46:06.355 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 8: response = sendRequest(getFilterTO)
+2025-10-27 18:46:06.708 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_GET_All_4.har
+2025-10-27 18:46:06.721 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 9: verifyResponseStatusCode(response, 200)
+2025-10-27 18:46:06.738 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 10: markPassed("Verifikasi Status Code 200 berhasil.")
+2025-10-27 18:46:06.746 DEBUG com.kms.katalon.core.util.KeywordUtil    - ✓ Verifikasi Status Code 200 berhasil.
+2025-10-27 18:46:06.775 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 11: jsonSlurper = new groovy.json.JsonSlurper()
+2025-10-27 18:46:06.806 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 12: responseList = jsonSlurper.parseText(response.getResponseText())
+2025-10-27 18:46:06.863 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 13: verifyGreaterThan(responseList.size(), 0)
+2025-10-27 18:46:06.924 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 14: for (def user : responseList)
+2025-10-27 18:46:06.937 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 1: verifyEqual(job_level, filterLevel)
+2025-10-27 18:46:07.005 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 1: verifyEqual(job_level, filterLevel)
+2025-10-27 18:46:07.057 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 1: verifyEqual(job_level, filterLevel)
+2025-10-27 18:46:07.117 DEBUG t.TC06_GET_Users_Filter_JobLevel         - 15: markPassed("Verifikasi filter job_level '" + filterLevel + "' berhasil: " + responseList.size() + " user ditemukan dengan level tersebut.")
+2025-10-27 18:46:07.137 DEBUG com.kms.katalon.core.util.KeywordUtil    - ✓ Verifikasi filter job_level 'Senior' berhasil: 3 user ditemukan dengan level tersebut.
+2025-10-27 18:46:07.146 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel
+2025-10-27 18:46:07.155 INFO  c.k.katalon.core.main.TestCaseExecutor   - --------------------
+2025-10-27 18:46:07.156 INFO  c.k.katalon.core.main.TestCaseExecutor   - START Test Cases/Users_API/TC05_User_CRUD_Chain_Request
+2025-10-27 18:46:07.324 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 1: randomNum = Random().nextInt(9000) + 1000
+2025-10-27 18:46:07.330 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 2: randomUsername = Firman$randomNum
+2025-10-27 18:46:07.350 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 3: println(✅ Random username generated: $randomUsername)
+✅ Random username generated: Firman1140
+2025-10-27 18:46:07.363 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 4: randomUsername = randomUsername
+2025-10-27 18:46:07.369 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 5: postResponse = sendRequest(findTestObject("Users/TO_Users_POST_Create", ["first_name":"Firman", "last_name":"test", "username":randomUsername, "job_position":"Quality Assurance", "job_level":"Mid", ... ]))
+2025-10-27 18:46:07.736 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Create_5.har
+2025-10-27 18:46:07.762 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 6: verifyResponseStatusCode(postResponse, 201)
+2025-10-27 18:46:07.795 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 7: println("✅ POST validation passed")
+✅ POST validation passed
+2025-10-27 18:46:07.805 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 8: deleteResponse = sendRequest(findTestObject("Users/TO_Users_DELETE", ["username":randomUsername]))
+2025-10-27 18:46:08.142 INFO  c.k.k.core.webservice.common.HarLogger   - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_DELETE_6.har
+2025-10-27 18:46:08.164 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 9: verifyResponseStatusCode(deleteResponse, 204)
+2025-10-27 18:46:08.186 DEBUG testcase.TC05_User_CRUD_Chain_Request    - 10: println("✅ DELETE validation passed")
+✅ DELETE validation passed
+2025-10-27 18:46:08.199 INFO  c.k.katalon.core.main.TestCaseExecutor   - END Test Cases/Users_API/TC05_User_CRUD_Chain_Request
+2025-10-27 18:46:08.307 INFO  c.k.katalon.core.main.TestSuiteExecutor  - --------------------
+2025-10-27 18:46:08.307 INFO  c.k.katalon.core.main.TestSuiteExecutor  - END Test Suites/TS_Katalon_Mock_API_Full_Test
+2025-10-27 18:46:08.307 INFO  c.k.katalon.core.main.TestSuiteExecutor  - ====================

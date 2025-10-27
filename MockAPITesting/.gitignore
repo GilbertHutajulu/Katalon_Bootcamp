@@ -1,18 +1,18 @@
-.gradle
+#.gradle
 
-bin
+#bin
 
-Reports
+#Reports
 
-Libs
+#Libs
 
-output
+#output
 
-!output/.gitkeep
-build
+#!output/.gitkeep
+#build
 
-.classpath
+#.classpath
 
-.project
+#.project
 
-.cache
+#.cache

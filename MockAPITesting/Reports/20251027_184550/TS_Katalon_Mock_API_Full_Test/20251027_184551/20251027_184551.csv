@@ -1,0 +1,57 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+TS_Katalon_Mock_API_Full_Test,,,,27-10-2025 18:45:58,27-10-2025 18:46:08,9.737s,PASSED
+,,,,,,,
+Test Cases/Users_API/TC01_GET_Users_Success,,,,27-10-2025 18:45:59,27-10-2025 18:46:03,3.877s,PASSED
+"response = sendRequest(findTestObject(""Users/TO_Users_GET_All""))",,,,27-10-2025 18:46:00,27-10-2025 18:46:03,3.034s,PASSED
+"verifyResponseStatusCode(response, 200)",,,,27-10-2025 18:46:03,27-10-2025 18:46:03,0.057s,PASSED
+,,,,,,,
+Test Cases/Users_API/TC02_POST_Users_Success,,,,27-10-2025 18:46:03,27-10-2025 18:46:04,0.898s,PASSED
+currentTimeMillis = System.currentTimeMillis(),,,,27-10-2025 18:46:03,27-10-2025 18:46:03,0.025s,PASSED
+randomNum = Random().nextInt(999) + 100,,,,27-10-2025 18:46:03,27-10-2025 18:46:03,0.064s,PASSED
+uniqueUsername = FirmanUser_$currentTimeMillis_$randomNum,,,,27-10-2025 18:46:03,27-10-2025 18:46:03,0.105s,PASSED
+uniqueLastName = Test_$randomNum,,,,27-10-2025 18:46:03,27-10-2025 18:46:03,0.017s,PASSED
+"println(""✅ Username unik di-generate: "" + uniqueUsername)",,,,27-10-2025 18:46:03,27-10-2025 18:46:03,0.027s,PASSED
+"postResponse = sendRequest(findTestObject(""Users/TO_Users_POST_Create"", [""first_name"":""Firman"", ""last_name"":uniqueLastName, ""username"":uniqueUsername, ""job_position"":""Quality Assurance"", ""job_level"":""Junior"", ... ]))",,,,27-10-2025 18:46:03,27-10-2025 18:46:04,0.389s,PASSED
+"verifyResponseStatusCode(postResponse, 201)",,,,27-10-2025 18:46:04,27-10-2025 18:46:04,0.007s,PASSED
+"println(""✅ Verifikasi Status Code Berhasil: 201 Created"")",,,,27-10-2025 18:46:04,27-10-2025 18:46:04,0.004s,PASSED
+,,,,,,,
+Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username,,,,27-10-2025 18:46:04,27-10-2025 18:46:04,0.653s,PASSED
+"response = sendRequest(findTestObject(""Users/TO_Users_POST_Create"", [""first_name"":""Firman"", ""last_name"":""Singger"", ""username"":""Firman"", ""job_position"":""Quality Assurance"", ""job_level"":""Junior"", ... ]))",,,,27-10-2025 18:46:04,27-10-2025 18:46:04,0.425s,PASSED
+"verifyResponseStatusCode(response, 409)",,,,27-10-2025 18:46:04,27-10-2025 18:46:04,0.059s,PASSED
+,,,,,,,
+Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID,,,,27-10-2025 18:46:04,27-10-2025 18:46:05,0.844s,PASSED
+randomNum = Random().nextInt(9000) + 1000,,,,27-10-2025 18:46:05,27-10-2025 18:46:05,0.009s,PASSED
+randomUsername = firman_$randomNum,,,,27-10-2025 18:46:05,27-10-2025 18:46:05,0.030s,PASSED
+"println(""✅ New user created with username: "" + randomUsername)",,,,27-10-2025 18:46:05,27-10-2025 18:46:05,0.043s,PASSED
+"response = sendRequest(findTestObject(""Users/TO_Users_PATCH_Update"", [""first_name"":randomUsername, ""last_name"":""test"", ""username"":""firmans"", ""job_position"":""asdsadas"", ""job_level"":""asdsadasa""]))",,,,27-10-2025 18:46:05,27-10-2025 18:46:05,0.322s,PASSED
+"verifyResponseStatusCode(response, 204)",,,,27-10-2025 18:46:05,27-10-2025 18:46:05,0.009s,PASSED
+randomUsername = randomUsername,,,,27-10-2025 18:46:05,27-10-2025 18:46:05,0.231s,PASSED
+,,,,,,,
+Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel,,,,27-10-2025 18:46:05,27-10-2025 18:46:07,1.288s,PASSED
+"filterLevel = ""Senior""",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.005s,PASSED
+"baseUrl = ""https://hjaltjbqyttixmfubktb.supabase.co/rest/v1""",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.008s,PASSED
+"endpoint = ""/users?job_level=eq."" + filterLevel",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.015s,PASSED
+fullUrl = baseUrl + endpoint,,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.016s,PASSED
+"logInfo(""Mengirim permintaan ke URL: "" + fullUrl)",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.035s,PASSED
+"getFilterTO = findTestObject(""Users/TO_Users_GET_All"")",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.016s,PASSED
+getFilterTO.setRestUrl(fullUrl),,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.072s,PASSED
+response = sendRequest(getFilterTO),,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.365s,PASSED
+"verifyResponseStatusCode(response, 200)",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.017s,PASSED
+"markPassed(""Verifikasi Status Code 200 berhasil."")",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.036s,PASSED
+jsonSlurper = new groovy.json.JsonSlurper(),,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.027s,PASSED
+responseList = jsonSlurper.parseText(response.getResponseText()),,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.054s,PASSED
+"verifyGreaterThan(responseList.size(), 0)",,,,27-10-2025 18:46:06,27-10-2025 18:46:06,0.059s,PASSED
+for (def user : responseList),,,,27-10-2025 18:46:06,27-10-2025 18:46:07,0.193s,PASSED
+"markPassed(""Verifikasi filter job_level '"" + filterLevel + ""' berhasil: "" + responseList.size() + "" user ditemukan dengan level tersebut."")",,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.011s,PASSED
+,,,,,,,
+Test Cases/Users_API/TC05_User_CRUD_Chain_Request,,,,27-10-2025 18:46:07,27-10-2025 18:46:08,1.043s,PASSED
+randomNum = Random().nextInt(9000) + 1000,,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.007s,PASSED
+randomUsername = Firman$randomNum,,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.025s,PASSED
+println(✅ Random username generated: $randomUsername),,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.007s,PASSED
+randomUsername = randomUsername,,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.006s,PASSED
+"postResponse = sendRequest(findTestObject(""Users/TO_Users_POST_Create"", [""first_name"":""Firman"", ""last_name"":""test"", ""username"":randomUsername, ""job_position"":""Quality Assurance"", ""job_level"":""Mid"", ... ]))",,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.391s,PASSED
+"verifyResponseStatusCode(postResponse, 201)",,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.025s,PASSED
+"println(""✅ POST validation passed"")",,,,27-10-2025 18:46:07,27-10-2025 18:46:07,0.008s,PASSED
+"deleteResponse = sendRequest(findTestObject(""Users/TO_Users_DELETE"", [""username"":randomUsername]))",,,,27-10-2025 18:46:07,27-10-2025 18:46:08,0.349s,PASSED
+"verifyResponseStatusCode(deleteResponse, 204)",,,,27-10-2025 18:46:08,27-10-2025 18:46:08,0.019s,PASSED
+"println(""✅ DELETE validation passed"")",,,,27-10-2025 18:46:08,27-10-2025 18:46:08,0.006s,PASSED

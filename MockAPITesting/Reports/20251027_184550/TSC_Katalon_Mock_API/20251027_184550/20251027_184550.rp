@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportCollectionEntity>
+   <description></description>
+   <name>20251027_184550</name>
+   <tag></tag>
+   <displayName>20251027_184550</displayName>
+   <reportItemDescriptions>
+      <ReportItemDescription>
+         <reportLocation>Reports/20251027_184550/TS_Katalon_Mock_API_Full_Test/20251027_184551</reportLocation>
+         <runConfigDescription>
+            <groupName>Web Service</groupName>
+            <profileName>DEV_Katalon_Mock_API</profileName>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Web Service</runConfigurationId>
+         </runConfigDescription>
+         <testCaseAmount>0</testCaseAmount>
+      </ReportItemDescription>
+   </reportItemDescriptions>
+   <testSuiteCollectionId>Test Suites/TSC_Katalon_Mock_API</testSuiteCollectionId>
+</ReportCollectionEntity>

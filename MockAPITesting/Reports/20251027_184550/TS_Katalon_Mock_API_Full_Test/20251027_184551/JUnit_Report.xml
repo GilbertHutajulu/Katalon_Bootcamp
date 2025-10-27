@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="TS_Katalon_Mock_API_Full_Test" time="9.629" tests="6" failures="0" errors="0">
+   <testsuite name="TS_Katalon_Mock_API_Full_Test" tests="6" failures="0" errors="0" time="9.629" skipped="0" timestamp="2025-10-27T11:45:58.570Z" hostname="hutaj - Hutajulu.lan" id="Test Suites/TS_Katalon_Mock_API_Full_Test">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform"/>
+         <property name="logFolder" value="E:\\MockAPITesting\\Reports\\20251027_184550\\TS_Katalon_Mock_API_Full_Test\\20251027_184551"/>
+         <property name="logFiles" value="E:\\MockAPITesting\\Reports\\20251027_184550\\TS_Katalon_Mock_API_Full_Test\\20251027_184551\\console0.log, E:\\MockAPITesting\\Reports\\20251027_184550\\TS_Katalon_Mock_API_Full_Test\\20251027_184551\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="userFullName" value="pirmaan"/>
+         <property name="hostName" value="hutaj - Hutajulu.lan"/>
+         <property name="hostAddress" value="192.168.110.32"/>
+         <property name="projectName" value="MockAPITesting"/>
+         <property name="os" value="Windows 11 64bit"/>
+         <property name="katalonVersion" value="10.3.2.0"/>
+      </properties>
+      <testcase name="Test Cases/Users_API/TC01_GET_Users_Success" time="3.877" classname="Test Cases/Users_API/TC01_GET_Users_Success" status="PASSED">
+         <system-out><![CDATA[27-10-2025T18:45:59 - [TEST_CASE][PASSED] - Test Cases/Users_API/TC01_GET_Users_Success: Test Cases/Users_API/TC01_GET_Users_Success
+
+27-10-2025T18:46:00 - [TEST_STEP][PASSED] - response = sendRequest(findTestObject("Users/TO_Users_GET_All")): Send request successfully
+
+27-10-2025T18:46:03 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_GET_All_0.har
+
+27-10-2025T18:46:03 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - verifyResponseStatusCode(response, 200): Verify response status code successfully
+
+27-10-2025T18:46:03 - [MESSAGE][PASSED] - Verify response status code successfully]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Users_API/TC02_POST_Users_Success" time="0.898" classname="Test Cases/Users_API/TC02_POST_Users_Success" status="PASSED">
+         <system-out><![CDATA[27-10-2025T18:46:03 - [TEST_CASE][PASSED] - Test Cases/Users_API/TC02_POST_Users_Success: Test Cases/Users_API/TC02_POST_Users_Success
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - currentTimeMillis = System.currentTimeMillis(): null
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - randomNum = Random().nextInt(999) + 100: null
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - uniqueUsername = FirmanUser_$currentTimeMillis_$randomNum: null
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - uniqueLastName = Test_$randomNum: null
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - println("✅ Username unik di-generate: " + uniqueUsername): null
+
+27-10-2025T18:46:03 - [TEST_STEP][PASSED] - postResponse = sendRequest(findTestObject("Users/TO_Users_POST_Create", ["first_name":"Firman", "last_name":uniqueLastName, "username":uniqueUsername, "job_position":"Quality Assurance", "job_level":"Junior", ... ])): Send request successfully
+
+27-10-2025T18:46:04 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Create_1.har
+
+27-10-2025T18:46:04 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:04 - [TEST_STEP][PASSED] - verifyResponseStatusCode(postResponse, 201): Verify response status code successfully
+
+27-10-2025T18:46:04 - [MESSAGE][PASSED] - Verify response status code successfully
+
+27-10-2025T18:46:04 - [TEST_STEP][PASSED] - println("✅ Verifikasi Status Code Berhasil: 201 Created"): null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username" time="0.653" classname="Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username" status="PASSED">
+         <system-out><![CDATA[27-10-2025T18:46:04 - [TEST_CASE][PASSED] - Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username: Test Cases/Users_API/TC03_POST_Users_Error_Duplicate_Username
+
+27-10-2025T18:46:04 - [TEST_STEP][PASSED] - response = sendRequest(findTestObject("Users/TO_Users_POST_Create", ["first_name":"Firman", "last_name":"Singger", "username":"Firman", "job_position":"Quality Assurance", "job_level":"Junior", ... ])): Send request successfully
+
+27-10-2025T18:46:04 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Create_2.har
+
+27-10-2025T18:46:04 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:04 - [TEST_STEP][PASSED] - verifyResponseStatusCode(response, 409): Verify response status code successfully
+
+27-10-2025T18:46:04 - [MESSAGE][PASSED] - Verify response status code successfully]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID" time="0.844" classname="Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID" status="PASSED">
+         <system-out><![CDATA[27-10-2025T18:46:04 - [TEST_CASE][PASSED] - Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID: Test Cases/Users_API/TC04_PATCH_Users_Error_Invalid_ID
+
+27-10-2025T18:46:05 - [TEST_STEP][PASSED] - randomNum = Random().nextInt(9000) + 1000: null
+
+27-10-2025T18:46:05 - [TEST_STEP][PASSED] - randomUsername = firman_$randomNum: null
+
+27-10-2025T18:46:05 - [TEST_STEP][PASSED] - println("✅ New user created with username: " + randomUsername): null
+
+27-10-2025T18:46:05 - [TEST_STEP][PASSED] - response = sendRequest(findTestObject("Users/TO_Users_PATCH_Update", ["first_name":randomUsername, "last_name":"test", "username":"firmans", "job_position":"asdsadas", "job_level":"asdsadasa"])): Send request successfully
+
+27-10-2025T18:46:05 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Update_3.har
+
+27-10-2025T18:46:05 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:05 - [TEST_STEP][PASSED] - verifyResponseStatusCode(response, 204): Verify response status code successfully
+
+27-10-2025T18:46:05 - [MESSAGE][PASSED] - Verify response status code successfully
+
+27-10-2025T18:46:05 - [TEST_STEP][PASSED] - randomUsername = randomUsername: null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel" time="1.288" classname="Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel" status="PASSED">
+         <system-out><![CDATA[27-10-2025T18:46:05 - [TEST_CASE][PASSED] - Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel: Test Cases/Users_API/TC06_GET_Users_Filter_JobLevel
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - filterLevel = "Senior": null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - baseUrl = "https://hjaltjbqyttixmfubktb.supabase.co/rest/v1": null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - endpoint = "/users?job_level=eq." + filterLevel: null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - fullUrl = baseUrl + endpoint: null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - logInfo("Mengirim permintaan ke URL: " + fullUrl): Mengirim permintaan ke URL: https://hjaltjbqyttixmfubktb.supabase.co/rest/v1/users?job_level=eq.Senior
+
+27-10-2025T18:46:06 - [MESSAGE][INFO] - Mengirim permintaan ke URL: https://hjaltjbqyttixmfubktb.supabase.co/rest/v1/users?job_level=eq.Senior
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - getFilterTO = findTestObject("Users/TO_Users_GET_All"): null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - getFilterTO.setRestUrl(fullUrl): null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - response = sendRequest(getFilterTO): Send request successfully
+
+27-10-2025T18:46:06 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_GET_All_4.har
+
+27-10-2025T18:46:06 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - verifyResponseStatusCode(response, 200): Verify response status code successfully
+
+27-10-2025T18:46:06 - [MESSAGE][PASSED] - Verify response status code successfully
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - markPassed("Verifikasi Status Code 200 berhasil."): Verifikasi Status Code 200 berhasil.
+
+27-10-2025T18:46:06 - [MESSAGE][PASSED] - Verifikasi Status Code 200 berhasil.
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - jsonSlurper = new groovy.json.JsonSlurper(): null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - responseList = jsonSlurper.parseText(response.getResponseText()): null
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - verifyGreaterThan(responseList.size(), 0): Actual number '3' is greater than expected number '0'
+
+27-10-2025T18:46:06 - [MESSAGE][PASSED] - Actual number '3' is greater than expected number '0'
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - for (def user : responseList): Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:06 - [TEST_STEP][PASSED] - verifyEqual(job_level, filterLevel): Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:07 - [MESSAGE][PASSED] - Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - verifyEqual(job_level, filterLevel): Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:07 - [MESSAGE][PASSED] - Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - verifyEqual(job_level, filterLevel): Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:07 - [MESSAGE][PASSED] - Actual object 'Senior' and expected object 'Senior' are equal
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - markPassed("Verifikasi filter job_level '" + filterLevel + "' berhasil: " + responseList.size() + " user ditemukan dengan level tersebut."): Verifikasi filter job_level 'Senior' berhasil: 3 user ditemukan dengan level tersebut.
+
+27-10-2025T18:46:07 - [MESSAGE][PASSED] - Verifikasi filter job_level 'Senior' berhasil: 3 user ditemukan dengan level tersebut.]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Users_API/TC05_User_CRUD_Chain_Request" time="1.043" classname="Test Cases/Users_API/TC05_User_CRUD_Chain_Request" status="PASSED">
+         <system-out><![CDATA[27-10-2025T18:46:07 - [TEST_CASE][PASSED] - Test Cases/Users_API/TC05_User_CRUD_Chain_Request: Test Cases/Users_API/TC05_User_CRUD_Chain_Request
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - randomNum = Random().nextInt(9000) + 1000: null
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - randomUsername = Firman$randomNum: null
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - println(✅ Random username generated: $randomUsername): null
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - randomUsername = randomUsername: null
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - postResponse = sendRequest(findTestObject("Users/TO_Users_POST_Create", ["first_name":"Firman", "last_name":"test", "username":randomUsername, "job_position":"Quality Assurance", "job_level":"Mid", ... ])): Send request successfully
+
+27-10-2025T18:46:07 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_..._Create_5.har
+
+27-10-2025T18:46:07 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - verifyResponseStatusCode(postResponse, 201): Verify response status code successfully
+
+27-10-2025T18:46:07 - [MESSAGE][PASSED] - Verify response status code successfully
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - println("✅ POST validation passed"): null
+
+27-10-2025T18:46:07 - [TEST_STEP][PASSED] - deleteResponse = sendRequest(findTestObject("Users/TO_Users_DELETE", ["username":randomUsername])): Send request successfully
+
+27-10-2025T18:46:08 - [MESSAGE][INFO] - HAR: E:\MockAPITesting\Reports\20251027_184550\TS_Katalon_Mock_API_Full_Test\20251027_184551\requests\main\TO_Users_DELETE_6.har
+
+27-10-2025T18:46:08 - [MESSAGE][PASSED] - Send request successfully
+
+27-10-2025T18:46:08 - [TEST_STEP][PASSED] - verifyResponseStatusCode(deleteResponse, 204): Verify response status code successfully
+
+27-10-2025T18:46:08 - [MESSAGE][PASSED] - Verify response status code successfully
+
+27-10-2025T18:46:08 - [TEST_STEP][PASSED] - println("✅ DELETE validation passed"): null]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[27-10-2025T18:45:58 - [TEST_SUITE][PASSED] - TS_Katalon_Mock_API_Full_Test: null]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

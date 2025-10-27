@@ -1,0 +1,14 @@
+{
+  "id": "Test Suites/TSC_Katalon_Mock_API",
+  "name": "TSC_Katalon_Mock_API",
+  "reportFolder": "E:\\MockAPITesting\\Reports\\20251027_184550\\TSC_Katalon_Mock_API\\20251027_184550",
+  "startTime": 1761565553423,
+  "endTime": 1761565568568,
+  "totalPassedTestCases": "6",
+  "totalErrorTestCases": "0",
+  "totalFailedTestCases": "0",
+  "totalTestCases": "6",
+  "totalIncompleteTestCases": "0",
+  "totalSkippedTestCases": "0",
+  "description": ""
+}
